@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProductController {
 
-    //Load Balancing Test
+    //Load Balancing Test API
     @Value("${server.port}") // 애플리케이션이 실행 중인 포트를 주입받습니다.
     private String serverPort;
 

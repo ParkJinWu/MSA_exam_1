@@ -23,9 +23,6 @@ public class CustomPostFilter implements GlobalFilter, Ordered {
             ServerHttpResponse response = exchange.getResponse();
 
             logger.info("Post Filter :  Response status code is " + response.getStatusCode());
-
-
-
         }));
     }
 

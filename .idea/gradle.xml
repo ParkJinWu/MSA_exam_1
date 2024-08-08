@@ -15,6 +15,16 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/com.sparta.msa_exam.auth" />
+        <option name="gradleHome" value="/opt/homebrew/Cellar/gradle/8.9/libexec" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/com.sparta.msa_exam.auth" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/com.sparta.msa_exam.gateway" />
         <option name="gradleHome" value="/opt/homebrew/Cellar/gradle/8.9/libexec" />
         <option name="modules">

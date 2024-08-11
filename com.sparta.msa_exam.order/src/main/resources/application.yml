@@ -11,4 +11,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:19090/eureka/
+  data:
+    redis:
+      host: localhost
+      username: default
+      password: systempass
+      port: 6379
 

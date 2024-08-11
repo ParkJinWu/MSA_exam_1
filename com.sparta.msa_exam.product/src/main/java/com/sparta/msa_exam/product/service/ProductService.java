@@ -6,6 +6,7 @@ import com.sparta.msa_exam.product.mapper.ProductMapper;
 import com.sparta.msa_exam.product.products.Product;
 import com.sparta.msa_exam.product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,6 +30,7 @@ public class ProductService {
     }
 
     // 모든 상품 조회
+    @Cacheable(cacheNames = "productCache", key = "arge[0]")
     public List<ProductResponseDto> getProducts() {
         List<Product> products = productRepository.findAll();
         // Entity list -> Dto List로 변환

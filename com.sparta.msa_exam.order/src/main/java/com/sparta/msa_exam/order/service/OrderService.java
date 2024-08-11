@@ -8,6 +8,7 @@ import com.sparta.msa_exam.order.order.OrderItem;
 import com.sparta.msa_exam.order.repository.OrderItemRepository;
 import com.sparta.msa_exam.order.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,7 +46,7 @@ public class OrderService {
         return null;
     }
 
-    @Transactional(readOnly = true)
+    @Cacheable(cacheNames = "orderCache", key = "args[0]")
     public OrderResponseDto getOrderById(Long orderId) {
         Optional<Order> orderOpt = orderRepository.findById(orderId);
         return orderOpt.map(OrderMapper::toDto).orElse(null);

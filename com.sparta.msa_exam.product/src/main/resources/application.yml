@@ -1,6 +1,10 @@
 spring:
   application:
     name: product-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/msa_exam
+    username: root
+    password: password
 
 server:
   port: 19093

@@ -6,6 +6,10 @@ spring:
     web-application-type: reactive  # Spring 애플리케이션이 리액티브 웹 애플리케이션으로 설정됨
   application:
     name: gateway-service  # 애플리케이션 이름을 'gateway-service'로 설정
+  datasource:
+    url: jdbc:mysql://localhost:3306/msa_exam  # MySQL 데이터베이스 URL
+    username: root  # MySQL 사용자 이름
+    password: password  # MySQL 비밀번호
   cloud:
     gateway:
       routes:  # Spring Cloud Gateway의 라우팅 설정
@@ -20,7 +24,7 @@ spring:
         - id: auth-service  # 라우트 식별자
           uri: lb://auth-service
           predicates:
-            - Path=/auth/signIn # /auth/signIn 경로로 들어오는 요청을 이 라우트로 처리
+            - Path=/auth/** # /auth/signIn 경로로 들어오는 요청을 이 라우트로 처리
       discovery:
         locator:
           enabled: true  # 서비스 디스커버리를 통해 동적으로 라우트를 생성하도록 설정
@@ -30,7 +34,7 @@ eureka:
     service-url:
       defaultZone: http://localhost:19090/eureka/  # Eureka 서버의 URL을 지정
 
-
 service:
   jwt:
     secret-key: "401b09eab3c013d4ca54922bb802bec8fd5318192b0a75f201d8b3727429080fb337591abd3e44453b954555b7a0812e1081c39b740293f765eae731f5a65ed1"
+    #access-token-expiration: 3600000  # JWT 만료 시간 (밀리초 단위, 1시간)

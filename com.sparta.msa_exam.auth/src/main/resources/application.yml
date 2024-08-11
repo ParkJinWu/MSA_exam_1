@@ -2,6 +2,11 @@ spring:
   application:
     name: auth-service
 
+  datasource:
+    url: jdbc:mysql://localhost:3306/msa_exam  # MySQL 데이터베이스 URL
+    username: root  # MySQL 사용자 이름
+    password: password  # MySQL 비밀번호
+
 eureka:
   client:
     service-url:

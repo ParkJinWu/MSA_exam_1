@@ -13,11 +13,11 @@ public class ProductResponseDto {
     private String name;
     private Integer supply_price;
 
-    // Entity -> Dto
-    public ProductResponseDto(Product product) {
-        this.product_id = product.getProduct_id();
-        this.name = product.getName();
-        this.supply_price = product.getSupply_price();
-    }
+//    // Entity -> Dto
+//    public ProductResponseDto(Product product) {
+//        this.product_id = product.getProduct_id();
+//        this.name = product.getName();
+//        this.supply_price = product.getSupply_price();
+//    }
 
 }

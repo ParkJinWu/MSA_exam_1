@@ -6,7 +6,7 @@ import com.sparta.msa_exam.auth.dto.SignUpDto;
 public class UserMapper {
 
     /**
-     * SignUpDto를 User 엔티티로 변환합니다.
+     * SignUpDto를 User 엔티티로 변환
      *
      * @param signUpDto 회원가입 요청 DTO
      * @return 변환된 User 엔티티

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
 import org.springframework.http.HttpRequest;
+import org.springframework.util.StringUtils;
+
 import java.util.Base64;
 
 @Component
@@ -30,7 +32,7 @@ public class JwtUtil {
 
     public String getJwtToken(HttpRequest request) {
         String authHeader = request.getHeaders().getFirst(AUTHORIZATION_HEADER);
-        if (authHeader != null && authHeader.startsWith(BEARER_PREFIX)) {
+        if (StringUtils.hasText(authHeader) && authHeader.startsWith(BEARER_PREFIX)) {
             return authHeader.substring(7);
         }
         return null;

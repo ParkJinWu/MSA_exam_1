@@ -30,7 +30,7 @@ public class ProductService {
     }
 
     // 모든 상품 조회
-    @Cacheable(cacheNames = "productCache", key = "arge[0]")
+    @Cacheable(cacheNames = "productCache", key = "methodName")
     public List<ProductResponseDto> getProducts() {
         List<Product> products = productRepository.findAll();
         // Entity list -> Dto List로 변환

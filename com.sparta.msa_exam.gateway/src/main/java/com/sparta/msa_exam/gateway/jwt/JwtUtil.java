@@ -3,13 +3,13 @@ package com.sparta.msa_exam.gateway.jwt;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
-import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
+import org.springframework.http.HttpRequest;
 import java.util.Base64;
 
 @Component
@@ -28,8 +28,8 @@ public class JwtUtil {
         this.secretKey = Keys.hmacShaKeyFor(Base64.getDecoder().decode(secretKey));
     }
 
-    public String getJwtToken(HttpServletRequest request) {
-        String authHeader = request.getHeader(AUTHORIZATION_HEADER);
+    public String getJwtToken(HttpRequest request) {
+        String authHeader = request.getHeaders().getFirst(AUTHORIZATION_HEADER);
         if (authHeader != null && authHeader.startsWith(BEARER_PREFIX)) {
             return authHeader.substring(7);
         }
@@ -54,11 +54,4 @@ public class JwtUtil {
         }
         return false;
     }
-
-
-
-
-
-
-
 }

@@ -1,14 +1,14 @@
 package com.sparta.msa_exam.auth.dto;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-@Setter
+// 회원가입 요청 객체
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class SignUpDto {
-    private String username;
-    private String password;
-    private String email;
+    @NotNull
+    private String userId;
 }

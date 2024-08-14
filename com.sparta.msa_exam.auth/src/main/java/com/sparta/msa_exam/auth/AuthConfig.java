@@ -18,9 +18,10 @@ public class AuthConfig {
                 .csrf(csrf -> csrf.disable())
                 // 요청에 대한 접근 권한을 설정합니다.
                 .authorizeRequests(authorize -> authorize
-                        // /auth/signIn 경로에 대한 접근을 허용
+                        // /auth/ 경로에 대한 접근을 허용
                         .requestMatchers("/auth/signIn").permitAll()
                         .requestMatchers("/auth/signUp").permitAll()
+                        .requestMatchers("/auth/verify").permitAll()
                         // 그 외의 모든 요청은 인증이 필요
                         .anyRequest().authenticated()
                 )

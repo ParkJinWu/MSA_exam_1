@@ -1,6 +1,10 @@
 spring:
   application:
     name: auth-service
+  jpa:
+    hibernate:
+      ddl-auto: update  # 데이터베이스 스키마 자동 업데이트
+    show-sql: true  # SQL 쿼리 출력 활성화
 
   datasource:
     url: jdbc:mysql://localhost:3306/msa_exam  # MySQL 데이터베이스 URL
